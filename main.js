@@ -9,14 +9,19 @@ let computerScore = 0;
 
 let winner = '';
 
-// Start game by clicking the button
+// Start game by clicking the button, not working
 
 const button = document.createElement('button')
 button.addEventListener('click', () => {
-    return playRound;
+    return game();
 })
 
-// Accept user input in console
+// Accept user input in console, not working
+
+function game() {
+    prompt("Do you pick rock, paper, or scissors", '')
+    return playRound;
+}
 
 // When it's a tie
 
@@ -66,17 +71,4 @@ function playRound(playerSelection, computerSelection) {
     function gameOver() {
         return playerScore === 5 || computerScore === 5
     }
-
-    // function computerResponse() {
-    //     const playerSelection = "rock";
-    //     const computerSelection = computerPlay();
-    //     return playRound(playerSelection, computerSelection);
-    //     console.log(playRound(playerSelection, computerSelection));
-    // }
-
-    // function playerSelection() {
-    //     const input = prompt("Do you play rock, paper, or scissors?");
-    //     alert('My pick is ${input}');
-    // }
-
-    // console.log(playerSelection)
+}
