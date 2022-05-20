@@ -55,6 +55,13 @@ function playRound(playerSelection, computerSelection) {
         return computerInput;
     }
 
+    // Determine when someone reaches a score of 5.
+    // How can I get it to check the score after every round?
+
+    function gameOver() {
+        return playerScore === 5 || computerScore === 5
+    }
+
     // function computerResponse() {
     //     const playerSelection = "rock";
     //     const computerSelection = computerPlay();
