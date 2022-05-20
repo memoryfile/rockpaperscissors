@@ -1,9 +1,5 @@
 console.log("Hello World")
 
-// Start game
-
-// Unsure, insert code here
-
 // Score at 0 initially, going for five rounds
 
 let playerScore = 0;
@@ -12,6 +8,15 @@ let computerScore = 0;
 // Each round determines a winner
 
 let winner = '';
+
+// Start game by clicking the button
+
+const button = document.createElement('button')
+button.addEventListener('click', () => {
+    return playRound;
+})
+
+// Accept user input in console
 
 // When it's a tie
 
