@@ -10,6 +10,6 @@ function computerResponse() {
 }
 
 function playerSelection() {
-    prompt("Pick rock, paper, or scissors", 'rock', 'paper', 'scissors')
-    return prompt;
+    const input = prompt("Do you play rock, paper, or scissors?");
+    alert('My pick is ${input}');
 }
