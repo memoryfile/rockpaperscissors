@@ -14,37 +14,51 @@ let winner = '';
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         winner = 'none'
-}
+    }
 
-// Deciding computer's response 
+    // When the computer wins through matchups
 
-function computerPlay() {
-    let computerNumber = random(3);
-    let computerInput = '';
-}
+    if ((playerSelection === 'rock' && computerSelection === 'paper') || (playerSelection === 'scissors' && computerSelection === 'rock') || (playerSelection === 'paper' && computerSelection === 'scissors')) {
+        computerScore++
+        winner = 'computer'
+    }
 
-switch (ComputerNumber) {
-    case a:
-        computerInput = 'rock';
-        break;
-    case b:
-        computerInput = 'paper'
-        break;
-    case c:
-        computerInput = 'scissors'
-        break;
-}
+     // When the player wins through matchups
 
-// function computerResponse() {
-//     const playerSelection = "rock";
-//     const computerSelection = computerPlay();
-//     return playRound(playerSelection, computerSelection);
-//     console.log(playRound(playerSelection, computerSelection));
-// }
+     if ((playerSelection === 'rock' && computerSelection === 'scissors') || (playerSelection === 'paper' && computerSelection === 'rock') || (playerSelection === 'scissors' && computerSelection === 'paper')) {
+        playerScore++
+        winner = 'player'
+    }
 
-// function playerSelection() {
-//     const input = prompt("Do you play rock, paper, or scissors?");
-//     alert('My pick is ${input}');
-// }
+    // Deciding computer's response
 
-// console.log(playerSelection)
+    function computerPlay() {
+        let computerNumber = random(3);
+        let computerInput = '';
+    }
+
+    switch (ComputerNumber) {
+        case 1:
+            computerInput = 'rock';
+            break;
+        case 2:
+            computerInput = 'paper'
+            break;
+        case 3:
+            computerInput = 'scissors'
+            break;
+    }
+
+    // function computerResponse() {
+    //     const playerSelection = "rock";
+    //     const computerSelection = computerPlay();
+    //     return playRound(playerSelection, computerSelection);
+    //     console.log(playRound(playerSelection, computerSelection));
+    // }
+
+    // function playerSelection() {
+    //     const input = prompt("Do you play rock, paper, or scissors?");
+    //     alert('My pick is ${input}');
+    // }
+
+    // console.log(playerSelection)
