@@ -9,19 +9,31 @@ let computerScore = 0;
 
 let winner = '';
 
-// Start game by clicking the button, not working
+// Start game through a prompt
 
-const button = document.createElement('button')
-button.addEventListener('click', () => {
-    return game();
-})
+let userPick = prompt("Do you pick rock, paper, or scissors?");
 
-// Accept user input in console, not working
-
-function game() {
-    prompt("Do you pick rock, paper, or scissors", '')
-    return playRound;
+if (userPick.toLowerCase() == "rock" || userPick.toLowerCase() == "scissors" || userPick.toLowerCase() == "rock") {
+  function playRound();
 }
+
+    // Deciding computer's response
+
+    function computerPlay() {
+        let computerNumber = random(3);
+        let computerSelection = '';
+
+        switch (computerNumber) {
+            case 1: computerSelection = 'rock';
+                break;
+            case 2: computerSelection = 'paper'
+                break;
+            case 3: computerSelection = 'scissors'
+                break;
+        }
+
+        return computerSelection;
+    }
 
 // When it's a tie
 
@@ -45,24 +57,6 @@ function playRound(playerSelection, computerSelection) {
         playerScore++
         winner = 'player'
         console.log("The winner is" + winner)
-    }
-
-    // Deciding computer's response
-
-    function computerPlay() {
-        let computerNumber = random(3);
-        let computerInput = '';
-
-        switch (ComputerNumber) {
-            case 1: computerInput = 'rock';
-                break;
-            case 2: computerInput = 'paper'
-                break;
-            case 3: computerInput = 'scissors'
-                break;
-        }
-
-        return computerInput;
     }
 
     // Determine when someone reaches a score of 5.
