@@ -36,7 +36,7 @@ buttons.forEach((button) => {
     const playerSelection = this.textContent;
     alert("You picked " + playerSelection);
     computerPlay();
-    alert("The computer played: " + computerSelection);
+    alert("The computer played: " + computerPlay);
     playRound();
     gameOver();
   });
@@ -64,8 +64,8 @@ buttons.forEach((button) => {
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         winner = 'nobody';
-        alert("The winner is" + winner);
-        console.log("The winner is" + winner);
+        alert("The winner is " + winner);
+        console.log("The winner is " + winner);
     }
 
     // When the computer wins through matchups
@@ -73,8 +73,8 @@ function playRound(playerSelection, computerSelection) {
     if ((playerSelection === 'rock' && computerSelection === 'paper') || (playerSelection === 'scissors' && computerSelection === 'rock') || (playerSelection === 'paper' && computerSelection === 'scissors')) {
         computerScore++
         winner = 'computer';
-        alert("The winner is" + winner);
-        console.log("The winner is" + winner);
+        alert("The winner is " + winner);
+        console.log("The winner is " + winner);
         computerScore++
     }
 
@@ -83,8 +83,8 @@ function playRound(playerSelection, computerSelection) {
     if ((playerSelection === 'rock' && computerSelection === 'scissors') || (playerSelection === 'paper' && computerSelection === 'rock') || (playerSelection === 'scissors' && computerSelection === 'paper')) {
         playerScore++
         winner = 'player';
-        alert("The winner is" + winner);
-        console.log("The winner is" + winner);
+        alert("The winner is " + winner);
+        console.log("The winner is " + winner);
         playerScore++
     }
 
