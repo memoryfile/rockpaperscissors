@@ -15,6 +15,14 @@ let round = 1;
 
 let winner = '';
 
+// Update scores and round
+
+const updateScore = () => {
+    document.getElementById("playerScore").innerHTML = "Your score: " + playerScore;
+    document.getElementById("computerScore").innerHTML = "Computer's score: " + computerScore;
+    document.getElementById("round").innerHTML = "Round: " + round;
+  };
+
 // Correspond rounds and scores to buttons
 
 // const displayRound = document.getElementById("round");
@@ -35,29 +43,14 @@ buttons.forEach((button) => {
     // What the user picks
     const playerSelection = this.textContent;
     alert("You picked " + playerSelection);
-    computerPlay();
-    alert("The computer played: " + computerPlay);
-    playRound();
-    gameOver();
+
+    const computerOptions = ["rock", "scissors", "paper"];
+    const computerSelection = computerOptions[Math.random(Math.random() * 3)];
+    console.log(computerSelection);
+    alert("The computer played: " + computerSelection);
+    playRound(playerSelection, computerSelection);
+    updateScore();
   });
-
-    // Deciding computer's response
-
-    function computerPlay() {
-        let computerNumber = Math.floor(Math.random(3));
-        let computerSelection = '';
-
-        switch (computerNumber) {
-            case 1: computerSelection = 'rock';
-                break;
-            case 2: computerSelection = 'paper';
-                break;
-            case 3: computerSelection = 'scissors';
-                break;
-        }
-
-        return computerSelection;
-    }
 
 // When it's a tie
 
@@ -86,19 +79,6 @@ function playRound(playerSelection, computerSelection) {
         alert("The winner is " + winner);
         console.log("The winner is " + winner);
         playerScore++
-    }
-
-    // Determine when someone reaches a score of 5.
-    // How can I get it to check the score after every round?
-
-    function gameOver() {
-        if (playerScore === 5) {
-            return alert("Game over! You won!!");
-        } else if (computerScore === 5) {
-            return alert("Game over! You lost...");
-        } else {
-            alert("Continue to the next match!");
-        }
     }
 }
 });  
