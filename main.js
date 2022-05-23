@@ -19,7 +19,7 @@ let winner = '';
 
 const updateScore = () => {
     document.getElementById("playerScore").innerHTML = "Your score: " + playerScore;
-    document.getElementById("computerScore").innerHTML = "Computer's score: " + computerScore;
+    document.getElementById("computerScore").innerHTML = "Opponent's score: " + computerScore;
     document.getElementById("round").innerHTML = "Round: " + round;
 };
 
@@ -27,24 +27,35 @@ const updateScore = () => {
 
 function gameOver() {
     return playerScore === 5 || computerScore === 5
-  }
+}
 
 // Event listeners for buttons
 
 buttons.forEach((button) => {
     button.addEventListener("click", function () { // What the user picks
         const playerSelection = this.textContent;
-        alert("You picked " + playerSelection);
+        alert("You choose " + playerSelection);
+
+        // Array for the computer's choices
 
         const computerOptions = ["Rock", "Scissors", "Paper"];
         const computerSelection = computerOptions[Math.floor(Math.random() * 3)];
         console.log(computerSelection);
-        alert("The computer played: " + computerSelection);
+        alert("Your opponent played: " + computerSelection);
+
+        // Configuration for playing a round. playerSelection and computerSelection are included with playRound to ensure they are calculated
+
         playRound(playerSelection, computerSelection);
         updateScore();
+        if (gameOver()) {
+            alert("The fifth round has passed, game over! You got " + playerScore + " points, while your opponent got " + computerScore + " points.")
+            return let(playerScore === 0 && computerScore === 0)
+        } else {
+            return;
+        }
     });
 
-    // When it's a tie
+    // Determining a tie. playerSelection and computerSelection are included with playRound to ensure they are calculated
 
     function playRound(playerSelection, computerSelection) {
         if (playerSelection === computerSelection) {
