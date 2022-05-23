@@ -23,10 +23,24 @@ const updateScore = () => {
     document.getElementById("round").innerHTML = "Round: " + round;
 };
 
+// Reset score and add a round
+
+const resetScore = () => {
+    playerScore = 0;
+    computerScore = 0;
+    round++;
+}
+
+// Change "Rock", "Paper", "Scissors" to lowercase before putting them in an alert
+
+// const lowercaseSelections = () => {
+//     let computerSelection(object.toString()) = text.toLowerCase();
+// }
+
 // Function to check if game is over
 
 function gameOver() {
-    return playerScore === 5 || computerScore === 5
+    return playerScore === 5 || computerScore === 5;
 }
 
 // Event listeners for buttons
@@ -34,7 +48,7 @@ function gameOver() {
 buttons.forEach((button) => {
     button.addEventListener("click", function () { // What the user picks
         const playerSelection = this.textContent;
-        alert("You choose " + playerSelection);
+        alert("You choose: " + playerSelection);
 
         // Array for the computer's choices
 
@@ -49,7 +63,8 @@ buttons.forEach((button) => {
         updateScore();
         if (gameOver()) {
             alert("The fifth round has passed, game over! You got " + playerScore + " points, while your opponent got " + computerScore + " points.")
-            return let(playerScore === 0 && computerScore === 0)
+            resetScore();
+            return;
         } else {
             return;
         }
@@ -60,7 +75,7 @@ buttons.forEach((button) => {
     function playRound(playerSelection, computerSelection) {
         if (playerSelection === computerSelection) {
             winner = 'nobody';
-            alert("Standstill... nobody wins.");
+            alert(playerSelection + " vs " + computerSelection + ": Standstill... nobody wins.");
             console.log(winner);
         }
 
@@ -68,7 +83,7 @@ buttons.forEach((button) => {
 
         if ((playerSelection === "Rock" && computerSelection === "Paper") || (playerSelection === "Scissors" && computerSelection === "Rock") || (playerSelection === "Paper" && computerSelection === "Scissors")) {
             winner = 'computer';
-            alert(computerSelection + "?!?! You've been outplayed!");
+            alert(playerSelection + " vs " + computerSelection + ": " + computerSelection + "?!?! You've been outplayed!");
             computerScore++
         }
 
@@ -76,7 +91,7 @@ buttons.forEach((button) => {
 
         if ((playerSelection === "Rock" && computerSelection === "Scissors") || (playerSelection === "Paper" && computerSelection === "Rock") || (playerSelection === "Scissors" && computerSelection === "Paper")) {
             winner = 'player';
-            alert(playerSelection + "?!?! You're the WINNER!!");
+            alert(playerSelection + " vs " + computerSelection + ": " + playerSelection + "?!?! You're the WINNER!!");
             playerScore++
         }
     }
