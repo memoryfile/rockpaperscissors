@@ -21,64 +21,52 @@ const updateScore = () => {
     document.getElementById("playerScore").innerHTML = "Your score: " + playerScore;
     document.getElementById("computerScore").innerHTML = "Computer's score: " + computerScore;
     document.getElementById("round").innerHTML = "Round: " + round;
-  };
+};
 
-// Correspond rounds and scores to buttons
+// Function to check if game is over
 
-// const displayRound = document.getElementById("round");
-// displayRound.innerHTML = "Round: " + round;
+function gameOver() {
+    return playerScore === 5 || computerScore === 5
+  }
 
-// const displayPlayerScore = document.getElementById("playerScore");
-// displayPlayerScore.innerHTML = "Your score: " + playerScore;
-
-// const displayComputerScore = document.getElementById("computerScore");
-// displayComputerScore.innerHTML = "Computer score: " + computerScore;
-
-// const buttons = document.querySelectorAll("button");
-
-// Event listeners for buttons 
+// Event listeners for buttons
 
 buttons.forEach((button) => {
-  button.addEventListener("click", function () {
-    // What the user picks
-    const playerSelection = this.textContent;
-    alert("You picked " + playerSelection);
+    button.addEventListener("click", function () { // What the user picks
+        const playerSelection = this.textContent;
+        alert("You picked " + playerSelection);
 
-    const computerOptions = ["rock", "scissors", "paper"];
-    const computerSelection = computerOptions[Math.random(Math.random() * 3)];
-    console.log(computerSelection);
-    alert("The computer played: " + computerSelection);
-    playRound(playerSelection, computerSelection);
-    updateScore();
-  });
+        const computerOptions = ["Rock", "Scissors", "Paper"];
+        const computerSelection = computerOptions[Math.floor(Math.random() * 3)];
+        console.log(computerSelection);
+        alert("The computer played: " + computerSelection);
+        playRound(playerSelection, computerSelection);
+        updateScore();
+    });
 
-// When it's a tie
+    // When it's a tie
 
-function playRound(playerSelection, computerSelection) {
-    if (playerSelection === computerSelection) {
-        winner = 'nobody';
-        alert("The winner is " + winner);
-        console.log("The winner is " + winner);
+    function playRound(playerSelection, computerSelection) {
+        if (playerSelection === computerSelection) {
+            winner = 'nobody';
+            alert("Standstill... nobody wins.");
+            console.log(winner);
+        }
+
+        // When the computer wins through matchups
+
+        if ((playerSelection === "Rock" && computerSelection === "Paper") || (playerSelection === "Scissors" && computerSelection === "Rock") || (playerSelection === "Paper" && computerSelection === "Scissors")) {
+            winner = 'computer';
+            alert(computerSelection + "?!?! You've been outplayed!");
+            computerScore++
+        }
+
+        // When the player wins through matchups
+
+        if ((playerSelection === "Rock" && computerSelection === "Scissors") || (playerSelection === "Paper" && computerSelection === "Rock") || (playerSelection === "Scissors" && computerSelection === "Paper")) {
+            winner = 'player';
+            alert(playerSelection + "?!?! You're the WINNER!!");
+            playerScore++
+        }
     }
-
-    // When the computer wins through matchups
-
-    if ((playerSelection === 'rock' && computerSelection === 'paper') || (playerSelection === 'scissors' && computerSelection === 'rock') || (playerSelection === 'paper' && computerSelection === 'scissors')) {
-        computerScore++
-        winner = 'computer';
-        alert("The winner is " + winner);
-        console.log("The winner is " + winner);
-        computerScore++
-    }
-
-    // When the player wins through matchups
-
-    if ((playerSelection === 'rock' && computerSelection === 'scissors') || (playerSelection === 'paper' && computerSelection === 'rock') || (playerSelection === 'scissors' && computerSelection === 'paper')) {
-        playerScore++
-        winner = 'player';
-        alert("The winner is " + winner);
-        console.log("The winner is " + winner);
-        playerScore++
-    }
-}
-});  
+});
