@@ -1,2 +1,2 @@
 # Rock Paper Scissors
-A Javascript practice project from The Odin Project
+A JavaScript practice project from The Odin Project
