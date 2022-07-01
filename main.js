@@ -20,9 +20,9 @@ let winner = '';
 // Update scores and round
 
 const updateScore = () => {
-    document.getElementById("playerScore").innerHTML = "Your score: " + playerScore;
-    document.getElementById("computerScore").innerHTML = "Opponent's score: " + computerScore;
-    document.getElementById("round").innerHTML = "Round: " + round;
+    document.getElementById("playerScore").innerText = "Your score: " + playerScore;
+    document.getElementById("computerScore").innerText = "Opponent's score: " + computerScore;
+    document.getElementById("round").innerText = "Round: " + round;
 };
 
 // Reset score and add a round
